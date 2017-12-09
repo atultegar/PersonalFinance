@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>827afea6-da6e-4005-bb01-c4f22b628389</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PersonalFinance.py</StartupFile>
+    <StartupFile>fetchquote.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
