@@ -9,7 +9,7 @@ titleList = title.split(";")
 lines = nav.split("\n")
 for line in lines:
     qline = line.split(";")
-    if qline[0] == '141007': #Scheme Code
+    if qline[0] == '112323': #Scheme Code
         for i in range(len(qline)):
             titles = titleList[i]
             values = qline[i]

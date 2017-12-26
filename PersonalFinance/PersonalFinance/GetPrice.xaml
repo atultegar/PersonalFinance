@@ -1,0 +1,15 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GetPrice" Height="300" Width="300">
+    <StackPanel>
+        <!-- Button -->
+        <Button>OK
+        </Button>
+        
+        <ComboBox >
+            <ComboBoxItem Content="Test1"/>
+            <ComboBoxItem Content="Test2"/>
+        </ComboBox>
+    </StackPanel>
+
+</Window>
