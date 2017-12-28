@@ -7,9 +7,13 @@
         </Button>
         
         <ComboBox >
+            <ComboBox.BindingGroup>
+                <BindingGroup/>
+            </ComboBox.BindingGroup>
             <ComboBoxItem Content="Test1"/>
             <ComboBoxItem Content="Test2"/>
         </ComboBox>
+        <DataGrid x:Name="dataGrid" Height="100"/>
     </StackPanel>
 
 </Window>
