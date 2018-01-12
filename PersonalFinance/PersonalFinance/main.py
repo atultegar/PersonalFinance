@@ -1,6 +1,7 @@
 ﻿import clr
 import wpf
 import dataConnect
+#import mfNav
 
 clr.AddReference("PresentationFramework")
 clr.AddReference("PresentationCore")
@@ -21,44 +22,48 @@ class main(Window):
     def __init__(self):
         wpf.LoadComponent(self, 'main.xaml')
     
+    def ComboBox1_SelectionChanged(self, sender, e):
+        schtype = self.ComboBox1.SelectedItem
+        schhouse = self.ComboBox2.SelectedItem
+        self.ComboBox3.Items.Clear()
+        self.Textbox1.Text = ""
+        schemedataset = dataConnect.getSchemes(schtype, schhouse)
+        schemevalues = schemedataset.scheme
+        for schemeid, schemevalue in schemevalues:
+            self.ComboBox3.Items.Add(str(schemevalue))
+    
+    def ComboBox3_SelectionChanged(self, sender, e):
+        self.Textbox1.Text = ""
+        schName = self.ComboBox3.SelectedItem
+        schemedataset2 = dataConnect.getSchemeId(schName)
+        schemeIdvalue = schemedataset2.scheme
+        self.Textbox1.Text = str(schemeIdvalue)
+
+        #schNavData = mfNav.getQuote(str(schemeIdvalue))
+        #schNavValue = schNavData.value
+        #self.TextBox2.Text = str(schNavValue)
+
+
+        
 window = main()
 app = Application()
 combo1 = ComboBox()
 dataset = dataConnect.getDataset()
 datavalues = dataset.schemeTypes
 
-type1 = 'Open Ended Schemes (ELSS)'
-house1 = 'Axis Mutual Fund'
-schemedataset = dataConnect.getSchemes(type1, house1)
-schemevalues = schemedataset.scheme
+#house1 = 'Axis Mutual Fund'
+#schemedataset = dataConnect.getSchemes(type1, house1)
+#schemevalues = schemedataset.scheme
 
 for datavalue in datavalues:
-    item = ComboBoxItem()
-    item.Content = datavalue
-    combo1.Items.Add(item)
+    combo1.Items.Add(str(datavalue))
 
 combo2 = ComboBox()
 housevalues = dataset.schemeHouses
 for housevalue in housevalues:
-    item = ComboBoxItem()
-    item.Content = housevalue
-    combo2.Items.Add(item)
-
-combo3 = ComboBox()
-for schemeid, schemevalue in schemevalues:
-    item = ComboBoxItem()
-    item.Content = schemevalue
-    combo3.Items.Add(item)
-
-listbox = ListBox()
-for dataId, datav in schemevalues:
-    litem = ListBoxItem()
-    litem.Content = dataId
-    listbox.Items.Add(litem)
+    combo2.Items.Add(str(housevalue))
 
 window.ComboBox1.ItemsSource = combo1.Items
 window.ComboBox2.ItemsSource = combo2.Items
-window.ComboBox3.ItemsSource = combo3.Items
-window.ListBox1.ItemsSource = listbox.Items
 
 app.Run(window)

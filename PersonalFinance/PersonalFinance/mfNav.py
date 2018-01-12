@@ -5,16 +5,16 @@ req = Request(url)
 resp = urlopen(req)
 nav = resp.read()
 lines1 = nav.split("\n")
-schCode1 = ['112323', '119659', '125597', '119661', '119413']
+schCode1 = ['112323', '119659', '125597', '119661','119413', '103633', '118540']
 
 class getQuote(object):
-    def __init__(self, lines, schCode):
-        for line in lines:
+    def __init__(self, schCode):
+        for line in lines1:
             qline = line.split(";")
             if qline[0] == schCode:
-                self.code = qline[0]
+                self.code = int(qline[0])
                 self.title = qline[3]
-                self.value = qline[4]
+                self.value = float(qline[4])
 
         def getValue(self):
             return self.code
@@ -23,8 +23,7 @@ class getQuote(object):
 
 dict = {}
 for schCode in schCode1:
-    app = getQuote(lines1, schCode)
+    app = getQuote(schCode)
     dict[app.code] = app.value
-    print "Title : ", app.title
-    print "NAV   : ", app.value
+ 
 print dict
