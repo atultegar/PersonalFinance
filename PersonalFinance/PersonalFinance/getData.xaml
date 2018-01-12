@@ -1,0 +1,9 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="getData" Height="300" Width="300">
+    <Grid>
+        <ComboBox x:Name="ComboBox1" Height="20" Margin="10" ItemsSource="{Binding Path=datavalues}">
+            
+        </ComboBox>
+    </Grid>
+</Window>

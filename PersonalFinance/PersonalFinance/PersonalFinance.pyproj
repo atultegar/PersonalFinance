@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>827afea6-da6e-4005-bb01-c4f22b628389</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>mfNav.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,19 +30,31 @@
     <InterpreterReference Include="IronPython|2.7-64" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dataConnect.py" />
     <Compile Include="fetchquote.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="getData.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GetPrice.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="main.py" />
     <Compile Include="mfNav.py" />
+    <Compile Include="myModelObject.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="schemeDB.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="getData.xaml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="GetPrice.xaml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="main.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
@@ -55,10 +67,40 @@
       <AssemblyName>PresentationFramework.dll</AssemblyName>
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\PresentationFramework.dll</HintPath>
     </Reference>
+    <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System</Name>
+      <AssemblyName>System.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.Core</Name>
+      <AssemblyName>System.Core.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.Data</Name>
+      <AssemblyName>System.Data.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.Data.DataSetExtensions</Name>
+      <AssemblyName>System.Data.DataSetExtensions.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.DataSetExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
       <Name>System.Xaml</Name>
       <AssemblyName>System.Xaml.dll</AssemblyName>
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.Xml</Name>
+      <AssemblyName>System.XML.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.XML.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.Xml.Linq</Name>
+      <AssemblyName>System.Xml.Linq.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.Linq.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Name>WindowsBase</Name>
