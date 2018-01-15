@@ -1,4 +1,5 @@
 ﻿import sqlite3
+from System.Windows import MessageBox
 
 class getDataset(object):
     def __init__(self):
@@ -20,28 +21,68 @@ class getSchemes(object):
     def __init__(self, type1, house1):
         conn = sqlite3.connect("mfindia.db")
         curs = conn.cursor()
-        #type1 = 'Open Ended Schemes (ELSS)'
-        #house1 = 'Axis Mutual Fund'
-        query = str.format("SELECT schemeCode, schemeName FROM schemes WHERE schemeType= '{0}' AND schemeHouse= '{1}'", type1, house1)
-        curs.execute(query)
-        self.scheme = curs.fetchall()
-        #self.schemes = [i[1] for i in scheme]
-        #self.schemeId = [i[0] for i in scheme]
+        curs.execute("SELECT schemeCode, schemeName FROM schemes WHERE schemeType=? AND schemeHouse=?", (type1, house1,))
         
-    
-#dataset = getDataset()
-#typeValues = dataset.schemeTypes
-#for typeValue in typeValues:
-#    print typeValue
+        self.scheme = curs.fetchall()
 
-#houseValues = dataset.schemeHouses
-#for houseValue in houseValues:
-#    print houseValue
-#
-#type1 = 'Open Ended Schemes (ELSS)'
-#house1 = 'Axis Mutual Fund'
-#schemedata = getSchemes(type1, house1)
-##schemeIds = schemedata.schemeId
-#schemeValues = schemedata.scheme
-#for key, data in schemeValues:
-#    print key,":",data
+        conn.close()
+        
+
+class getSchemeId(object):
+    def __init__(self, schemeName):
+        conn = sqlite3.connect("mfindia.db")
+        curs = conn.cursor()
+        curs.execute("SELECT schemeCode FROM schemes WHERE schemeName=?", (schemeName,))
+        
+        schemeId = curs.fetchall()
+        schId = [i[0] for i in schemeId]
+        conn.close()
+        if (len(schId) != 0):
+            self.scheme = schId[0]
+        else:
+            self.scheme = 0
+
+class mfinsert(object):
+    def __init__(self, schemeId, schemeName):
+        conn = sqlite3.connect("test_finance.db")
+        curs = conn.cursor()
+        curs.execute('''CREATE TABLE IF NOT EXISTS tblMf (
+                        schemeCode INTEGER PRIMARY KEY NOT NUll,
+                        schemeName VARCHAR(255) NOT NULL)''')
+        conn.commit()
+        curs.execute("SELECT schemeCode, schemeName FROM tblMf WHERE schemeCode = ?", (schemeId,))
+        result = curs.fetchone()
+
+        if result:
+            MessageBox.Show("Record already exists.\nPlease select different scheme", "Error")
+        else:
+            curs.execute("INSERT INTO tblMf (schemeCode, schemeName) values (?, ?)", (schemeId, schemeName))
+            conn.commit()
+            MessageBox.Show('Scheme Code: %s\r\nScheme Name: %s' %(schemeId, schemeName),"Test")
+        conn.close()
+
+class mflist(object):
+    def __init__(self):
+        conn = sqlite3.connect("test_finance.db")
+        curs = conn.cursor()
+        curs.execute("SELECT schemeCode, schemeName FROM tblMf")
+
+        schemes = curs.fetchall()
+        self.sch = [i[1] for i in schemes]
+        conn.close()
+        return self.sch
+
+class mftrans(object):
+    def __init__(self, invguid, fundname, invamount, invdate, folio):
+        conn = sqlite3.connect("test_finance.db")
+        cur = conn.cursor()
+        cur.execute('''CREATE TABLE IF NOT EXISTS tblTrans (
+                        guid VARCHAR(32) NOT NULL PRIMARY KEY,
+                        fundName VARCHAR(255) NOT NULL,
+                        amount DOUBLE NOT NULL,
+                        date DATE NOT NULL,
+                        folioNo VARCHAR(255))''')
+        conn.commit()
+        cur.execute("INSERT INTO tblTrans (guid, fundName, amount, date, folioNo) values (?, ?, ?, ?, ?)", (invguid, fundname, invamount, invdate, folio))
+        conn.commit()
+        MessageBox.Show("Transaction added successfully", "Test") 
