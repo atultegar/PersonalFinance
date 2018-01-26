@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>827afea6-da6e-4005-bb01-c4f22b628389</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>main.py</StartupFile>
+    <StartupFile>mfTrans.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -42,6 +42,7 @@
     </Compile>
     <Compile Include="main.py" />
     <Compile Include="mfNav.py" />
+    <Compile Include="mfTrans.py" />
     <Compile Include="myModelObject.py">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +56,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="main.xaml" />
+    <Content Include="mfTrans.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">

@@ -3,7 +3,7 @@ import clr
 import dataConnect
 
 from System.Windows import (
-    Application, Window
+    Application, Window, MessageBox
 )
 from System.Windows.Controls import *
 
@@ -21,13 +21,14 @@ class mfTrans(Window):
 
     
     def InvAmount_TextChanged(self, sender, e):
-        amount = int(self.InvAmount.Text)
-        nav = int(self.NAV.Text)
-        if (nav != 0):
-            units = amount/nav
-        else:
-            units = 0
-        self.Units.Text = str(units)
+        amount = self.InvAmount.Text
+        nav = self.NAV.Text
+        MessageBox.Show(type(amount))
+        #if (nav != 0):
+        #    units = amount/nav
+        #else:
+        #    units = 0
+        #self.Units.Text = str(units)
 
 window = mfTrans()
 app = Application()

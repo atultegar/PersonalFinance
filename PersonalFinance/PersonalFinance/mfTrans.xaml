@@ -5,7 +5,7 @@
         <TextBlock Text="Fund Name" Margin="22,5,0,0"/>
         <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Width="350" Margin="22,5,0,0"/>
         <TextBlock Text="Invested Amount" Margin="22,10,0,0"/>
-        <TextBox Text="0.00" x:Name="InvAmount" HorizontalAlignment="Left" Width="250" Margin="22,5,0,0" TextChanged="InvAmount_TextChanged" />
+        <TextBox x:Name="InvAmount" HorizontalAlignment="Left" Width="250" Margin="22,5,0,0" TextChanged="InvAmount_TextChanged" />
         <TextBlock Text="Date" Margin="22,10,0,0"/>
         <DatePicker HorizontalAlignment="Left" Margin="22,5,0,0" Width="250"/>
         <TextBlock Text="NAV" Margin="22,10,0,0"/>
