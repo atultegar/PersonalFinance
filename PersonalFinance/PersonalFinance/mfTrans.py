@@ -21,6 +21,7 @@ class mfTrans(Window):
 
     
     def InvAmount_TextChanged(self, sender, e):
+<<<<<<< HEAD
         amount = self.InvAmount.Text
         nav = self.NAV.Text
         MessageBox.Show(type(amount))
@@ -29,6 +30,21 @@ class mfTrans(Window):
         #else:
         #    units = 0
         #self.Units.Text = str(units)
+=======
+        if (self.InvAmount.Text != ""):
+            amount = float(self.InvAmount.Text)
+        else:
+            amount = 0.00
+        if (self.NAV.Text != ""):
+            nav = float(self.NAV.Text)
+        else:
+            nav = 0.00
+        if (nav != 0):
+            units = amount/nav
+        else:
+            units = 0
+        self.Units.Text = str(units)
+>>>>>>> dd2a842d30474963b15048e7f8d9e4fdfdf04909
 
 window = mfTrans()
 app = Application()

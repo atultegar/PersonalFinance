@@ -9,7 +9,7 @@
         <TextBlock Text="Date" Margin="22,10,0,0"/>
         <DatePicker HorizontalAlignment="Left" Margin="22,5,0,0" Width="250"/>
         <TextBlock Text="NAV" Margin="22,10,0,0"/>
-        <TextBox x:Name="NAV" HorizontalAlignment="Left" Width="250" Margin="22,5,0,0" TextChanged="InvAmount_TextChanged" />
+        <TextBox Text="0.00" x:Name="NAV" HorizontalAlignment="Left" Width="250" Margin="22,5,0,0" TextChanged="InvAmount_TextChanged" />
         <TextBlock Text="Units" Margin="22,10,0,0"/>
         <TextBox x:Name="Units" HorizontalAlignment="Left" Width="250" Margin="22,5,0,0" />
         <TextBlock Text="Folio No." Margin="22,10,0,0"/>
