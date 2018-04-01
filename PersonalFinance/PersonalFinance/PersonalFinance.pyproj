@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>827afea6-da6e-4005-bb01-c4f22b628389</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>mfTrans.py</StartupFile>
+    <StartupFile>GoogleFinanceSearch.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,6 +30,7 @@
     <InterpreterReference Include="IronPython|2.7-64" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="accountDb.py" />
     <Compile Include="dataConnect.py" />
     <Compile Include="fetchquote.py">
       <SubType>Code</SubType>
@@ -40,6 +41,9 @@
     <Compile Include="GetPrice.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GoogleFinanceSearch.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="main.py" />
     <Compile Include="mfNav.py" />
     <Compile Include="mfTrans.py" />
@@ -47,6 +51,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="schemeDB.py" />
+    <Compile Include="subGroupDb.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="getData.xaml">
